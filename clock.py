@@ -58,6 +58,8 @@ def print_times(day):
     print 'worked hours:', format_timedelta(workday)
     print 'time left:', format_timedelta(datetime.timedelta(hours=8) - workday)
 
+    return workday
+
 
 if __name__ == '__main__':
     today = get_today()
