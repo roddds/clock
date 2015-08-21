@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 import datetime
 import sys
+import time
 from session import session
 from models import WorkDay
 from sqlalchemy.orm.exc import NoResultFound
@@ -67,4 +68,15 @@ if __name__ == '__main__':
 
     if sys.argv[1] in EVENTS:
         insert_event(sys.argv[1])
-        print_times(today)
+
+    elif 'watch' in sys.argv:
+        wd = datetime.timedelta(hours=8) - wd
+        try:
+            while True:
+                timestr = format_timedelta(wd)
+                sys.stdout.write(timestr + '\r')
+                sys.stdout.flush()
+                time.sleep(1)
+                wd += datetime.timedelta(seconds=-1)
+        except KeyboardInterrupt:
+            sys.exit()
