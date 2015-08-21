@@ -66,7 +66,7 @@ if __name__ == '__main__':
     today = get_today()
     wd = print_times(today)
 
-    if sys.argv[1] in EVENTS:
+    if len(sys.argv) > 1 and sys.argv[1] in EVENTS:
         insert_event(sys.argv[1])
 
     elif 'watch' in sys.argv:
