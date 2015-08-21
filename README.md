@@ -33,11 +33,11 @@ To check the current status and how many hours you have left:
 Example output:
 
 
-    $ ./clock.py 
-    enter: 2015-08-21 13:02:25.004021
-    lunch: 2015-08-21 14:20:40.823168
-    back:  2015-08-21 14:58:30.823168
-    leave: 
-    
-    worked hours: 4:34:25.297379
-    time left: 3:25:34.702621
+    $ ./clock.py
+    enter: 2015-08-21 13:02:25
+    lunch: 2015-08-21 14:20:40
+    back:  2015-08-21 14:58:30
+    leave:
+
+    worked hours: 4:34:25
+    time left: 3:25:34
