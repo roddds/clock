@@ -6,9 +6,9 @@ from session import session
 from models import WorkDay
 from sqlalchemy.orm.exc import NoResultFound
 
-'''
-    events: enter, lunch, back, leave
-'''
+
+EVENTS = ('enter', 'lunch', 'back', 'leave')
+
 
 def commit(obj):
     session.add(obj)
@@ -63,8 +63,8 @@ def print_times(day):
 
 if __name__ == '__main__':
     today = get_today()
-    if len(sys.argv) == 1:
-        print_times(today)
-    else:
+    wd = print_times(today)
+
+    if sys.argv[1] in EVENTS:
         insert_event(sys.argv[1])
         print_times(today)
