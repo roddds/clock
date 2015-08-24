@@ -51,12 +51,16 @@ def print_times(day):
     print "back: ", format_time(day.pm_enter) if day.pm_enter else ''
     print "leave:", format_time(day.pm_leave) if day.pm_leave else ''
     print
+    if not day.am_enter:
+        print 'no clock times for today'
+        return
+
     now = datetime.datetime.now()
     workday = now - day.am_enter
     if day.am_leave and day.pm_enter:
         lunch = day.pm_enter - day.am_leave
         workday -= lunch
-    print 'worked hours:', format_timedelta(workday)
+    print 'worked time:', format_timedelta(workday)
     print 'time left:', format_timedelta(datetime.timedelta(hours=8) - workday)
 
     return workday
@@ -69,7 +73,7 @@ if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] in EVENTS:
         insert_event(sys.argv[1])
 
-    elif 'watch' in sys.argv:
+    elif wd and 'watch' in sys.argv:
         wd = datetime.timedelta(hours=8) - wd
         try:
             while True:
