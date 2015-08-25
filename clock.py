@@ -73,7 +73,7 @@ if __name__ == '__main__':
     today = get_today()
     wd = print_times(today)
 
-    elif wd and 'watch' in sys.argv:
+    if wd and 'watch' in sys.argv:
         wd = datetime.timedelta(hours=8) - wd
         try:
             while True:
