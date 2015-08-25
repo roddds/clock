@@ -67,11 +67,11 @@ def print_times(day):
 
 
 if __name__ == '__main__':
-    today = get_today()
-    wd = print_times(today)
-
     if len(sys.argv) > 1 and sys.argv[1] in EVENTS:
         insert_event(sys.argv[1])
+
+    today = get_today()
+    wd = print_times(today)
 
     elif wd and 'watch' in sys.argv:
         wd = datetime.timedelta(hours=8) - wd
