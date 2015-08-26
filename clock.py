@@ -61,7 +61,13 @@ def print_times(day):
         lunch = day.pm_enter - day.am_leave
         workday -= lunch
     print 'worked time:', format_timedelta(workday)
-    print 'time left:', format_timedelta(datetime.timedelta(hours=8) - workday)
+
+    time_left = datetime.timedelta(hours=8) - workday
+
+    if time_left.total_seconds() > 0: # negative delta
+        print 'time left:', format_timedelta(time_left)
+    else:
+        print 'work day finished, go home!'
 
     return workday
 
