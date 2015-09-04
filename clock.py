@@ -66,6 +66,7 @@ def print_times(day):
 
     if time_left.total_seconds() > 0: # negative delta
         print 'time left:', format_timedelta(time_left)
+        print 'you weill be able to leave at', format_time(now + time_left)
     else:
         print 'work day finished, go home!'
 
